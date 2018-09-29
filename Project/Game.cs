@@ -99,16 +99,43 @@ namespace CastleGrimtol.Project
 
     public void Lose()
     {
-      playing = false;
+      System.Console.WriteLine("Would you like to play again? Y/N?");
+      var input = Console.ReadLine().ToLower();
+      if (input == "y")
+      {
+        Setup();
+        StartGame();
+      }
+      else
+      {
+        Quit();
+      }
+      // playing = false;
+    }
+
+    public void Win()
+    {
+      System.Console.WriteLine("Congratulations! You are on the road to a better life!");
+      System.Console.WriteLine("Would you like to play again? Y/N?");
+      var input = Console.ReadLine().ToLower();
+      if (input == "y")
+      {
+        Setup();
+        StartGame();
+      }
+      else
+      {
+        Quit();
+      }
     }
 
     public void Setup()
     {
-      Room Cavern = new Room("Cavern", "You enter the cavern and water starts to fill the cavenrn. Sorry you died.");
-      Room Cave = new Room("Cave", "You are now in a cave. It is dark and dank but you see a glimmer to one side. It's a key.");
-      Room Forest = new Room("Forest", "You are surrounded by trees. You can see a cave to the west.");
-      Room Glade = new Room("Glade", "You find yourself in the middle of a glade. To your west is a forest and to your east is a Meadow.");
-      Room Meadow = new Room("Meadow", "You are now in a meadow. You can see a locked chest.");
+      Room Cavern = new Room("Cavern", "You enter the cavern and water starts to fill the cavenrn. Sorry you died");
+      Room Cave = new Room("Cave", "You are now in a cave. It is dark and dank but you see a glimmer to one side. It's a key! You also see a cavern leading farther into the cave.");
+      Room Forest = new Room("Forest", "You are surrounded by trees. You can see a cave to the west");
+      Room Glade = new Room("Glade", "You find yourself in the middle of a glade. To your west is a forest and to your east is a Meadow");
+      Room Meadow = new Room("Meadow", "You are now in a meadow. You can see a locked chest");
 
       Item Key = new Item("Key", "What does it unlock?");
 
@@ -187,7 +214,8 @@ namespace CastleGrimtol.Project
         if (CurrentRoom.Name == "Meadow")
         {
           CurrentPlayer.Inventory.Remove(theKey);
-          System.Console.WriteLine("You unlocked the chest to find...");
+          System.Console.WriteLine("You unlocked the chest to find a Learning C# book. Lucky you!");
+          Win();
         }
         else
         {
