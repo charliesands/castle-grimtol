@@ -96,13 +96,13 @@ namespace CastleGrimtol.Project
       var input = Console.ReadLine().ToLower();
       if (input == "y")
       {
-        Quit();
+        playing = false;
       }
       else
       {
 
       }
-      // playing = false;
+
     }
 
     public void Lose()
