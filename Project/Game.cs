@@ -7,7 +7,6 @@ namespace CastleGrimtol.Project
   {
     bool playing = true;
 
-
     public Room CurrentRoom { get; set; }
     public Player CurrentPlayer { get; set; }
 
@@ -48,7 +47,6 @@ namespace CastleGrimtol.Project
         default:
           System.Console.WriteLine("Invalid Selection");
           break;
-
       }
     }
 
@@ -110,7 +108,6 @@ namespace CastleGrimtol.Project
       {
         Quit();
       }
-      // playing = false;
     }
 
     public void Win()
@@ -139,7 +136,6 @@ namespace CastleGrimtol.Project
 
       Item Key = new Item("Key", "What does it unlock?");
 
-
       Cave.Exits.Add("west", Cavern);
       Cave.Exits.Add("east", Forest);
       Forest.Exits.Add("west", Cave);
@@ -149,7 +145,6 @@ namespace CastleGrimtol.Project
       Meadow.Exits.Add("west", Glade);
 
       Cave.AddItem(Key);
-      // Cave.Items.Add(Key); //use this?
 
       CurrentRoom = Glade;
       CurrentPlayer = new Player();
@@ -162,31 +157,10 @@ namespace CastleGrimtol.Project
       System.Console.WriteLine("Welcome to The Game!");
       Help();
       System.Console.WriteLine(CurrentRoom.Description);
-      // System.Console.WriteLine("Would you like to see the HELP guide? Y/N?");
       while (playing)
       {
-        // System.Console.WriteLine("What would you like to do?");
         GetUserInput();
-        // if (CurrentRoom == Cavern) {
-
       }
-
-      // var userHelp = Console.ReadLine().ToUpper();
-      // if (userHelp == "Y")
-      // {
-      //   Help();
-      // }
-      // else if (userHelp == "N")
-      // {
-      //   //how to continue past?
-      //   continue;
-      // }
-      // else
-      // {
-      //   System.Console.WriteLine("Invalid Selection");
-      // }
-      // System.Console.WriteLine("Ready to Play? Y/N?");
-
     }
 
     public void TakeItem(string itemName)
