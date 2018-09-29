@@ -19,6 +19,10 @@ namespace CastleGrimtol.Project
       {
         case "west":
           Go("west");
+          if (CurrentRoom.Name == "Cavern")
+          {
+            Lose();
+          }
           break;
         case "east":
           Go("east");
@@ -93,13 +97,14 @@ namespace CastleGrimtol.Project
       playing = false;
     }
 
-    public void Reset()
+    public void Lose()
     {
-
+      playing = false;
     }
 
     public void Setup()
     {
+      Room Cavern = new Room("Cavern", "You enter the cavern and water starts to fill the cavenrn. Sorry you died.");
       Room Cave = new Room("Cave", "You are now in a cave. It is dark and dank but you see a glimmer to one side. It's a key.");
       Room Forest = new Room("Forest", "You are surrounded by trees. You can see a cave to the west.");
       Room Glade = new Room("Glade", "You find yourself in the middle of a glade. To your west is a forest and to your east is a Meadow.");
@@ -107,6 +112,8 @@ namespace CastleGrimtol.Project
 
       Item Key = new Item("Key", "What does it unlock?");
 
+
+      Cave.Exits.Add("west", Cavern);
       Cave.Exits.Add("east", Forest);
       Forest.Exits.Add("west", Cave);
       Forest.Exits.Add("east", Glade);
@@ -133,23 +140,26 @@ namespace CastleGrimtol.Project
       {
         // System.Console.WriteLine("What would you like to do?");
         GetUserInput();
+        // if (CurrentRoom == Cavern) {
 
-        // var userHelp = Console.ReadLine().ToUpper();
-        // if (userHelp == "Y")
-        // {
-        //   Help();
-        // }
-        // else if (userHelp == "N")
-        // {
-        //   //how to continue past?
-        //   continue;
-        // }
-        // else
-        // {
-        //   System.Console.WriteLine("Invalid Selection");
-        // }
-        // System.Console.WriteLine("Ready to Play? Y/N?");
       }
+
+      // var userHelp = Console.ReadLine().ToUpper();
+      // if (userHelp == "Y")
+      // {
+      //   Help();
+      // }
+      // else if (userHelp == "N")
+      // {
+      //   //how to continue past?
+      //   continue;
+      // }
+      // else
+      // {
+      //   System.Console.WriteLine("Invalid Selection");
+      // }
+      // System.Console.WriteLine("Ready to Play? Y/N?");
+
     }
 
     public void TakeItem(string itemName)

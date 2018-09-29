@@ -11,7 +11,7 @@ namespace CastleGrimtol.Project
     void Setup();
 
     //Restarts the game 
-    void Reset();
+    // void Reset();
 
     //Setup and Starts the Game loop
     void StartGame();
