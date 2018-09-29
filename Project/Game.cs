@@ -92,7 +92,17 @@ namespace CastleGrimtol.Project
 
     public void Quit()
     {
-      playing = false;
+      System.Console.WriteLine("Are you sure you want to quit? Y/N?");
+      var input = Console.ReadLine().ToLower();
+      if (input == "y")
+      {
+        Quit();
+      }
+      else
+      {
+
+      }
+      // playing = false;
     }
 
     public void Lose()
