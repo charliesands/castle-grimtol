@@ -138,9 +138,9 @@ namespace CastleGrimtol.Project
 
     public void Setup()
     {
-      Room Cavern = new Room("Cavern", "You enter the cavern and water starts to fill the cavenrn. Sorry you died");
-      Room Cave = new Room("Cave", "You are now in a cave. It is dark and dank but you see a glimmer to one side. It's a key! You also see a cavern leading farther into the cave.");
-      Room Forest = new Room("Forest", "You are surrounded by trees. You can see a cave to the west");
+      Room Cavern = new Room("Cavern", "You enter the cavern and water starts to fill the cavern. Sorry you died");
+      Room Cave = new Room("Cave", "You are now in a cave. It is dark and dank but you see a glimmer to one side. It's a key! You also see a cavern leading farther into the cave..");
+      Room Forest = new Room("Forest", "You are surrounded by trees. You can see a cave to the west and a glade to the east");
       Room Glade = new Room("Glade", "You find yourself in the middle of a glade. To your west is a forest and to your east is a Meadow");
       Room Meadow = new Room("Meadow", "You are now in a meadow. You can see a locked chest");
 
